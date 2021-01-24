@@ -4,3 +4,5 @@ target/*
 /target/
 screenshots/
 test-output
+/out/
+out/*
