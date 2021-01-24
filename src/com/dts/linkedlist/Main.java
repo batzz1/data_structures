@@ -4,8 +4,11 @@ public class Main {
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
+     
+        System.out.println(list.size());
         list.addLast(10);
         list.addLast(20);
+        System.out.println(list.size());
         list.addLast(30);
         list.addFirst(2);
         list.print();
@@ -22,5 +25,9 @@ public class Main {
         System.out.println();
 
         list.print();
+        System.out.println(list.size());
+        list.removeFirst();
+        System.out.println(list.size());
+
     }
 }

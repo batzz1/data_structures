@@ -1,5 +1,7 @@
 package com.dts.linkedlist;
 
+import java.util.NoSuchElementException;
+
 /**
  * Implement a LinkedList class and add
  * Methods: 1.addFirst(item)
@@ -38,8 +40,9 @@ public class LinkedList {
             // 1-> 2 -> 3
             last.next = node;
             last = node;
-            size++;
+
         }
+        size++;
     }
 
     public void addFirst(int item) {
@@ -50,8 +53,8 @@ public class LinkedList {
             // 1 ->2-> 3
             node.next = first;
             first = node;
-            size++;
         }
+        size++;
     }
 
     /**
@@ -93,7 +96,7 @@ public class LinkedList {
      * Removes First Node
      */
     public void removeFirst() {
-        if (isEmpty()) return;
+        if (isEmpty()) throw new NoSuchElementException("Cannot Remove From Empty List");
 
         // 1 node : 1
         if (first == last)
@@ -104,13 +107,14 @@ public class LinkedList {
             first.next = null;
             first = second;
         }
+        size--;
     }
 
     /**
      * Removes last Node
      */
     public void removeLast() {
-        if (isEmpty()) return;
+        if (isEmpty()) throw new NoSuchElementException("Cannot Remove From Empty List");
 
         //1 node
         if (first == last) {
@@ -120,8 +124,8 @@ public class LinkedList {
             var previous = getPrevious(last);
             last = previous;
             last.next = null;
-
         }
+        size--;
     }
 
     public void print() {
@@ -141,6 +145,10 @@ public class LinkedList {
             }
         }
         return null;
+    }
+
+    public int size() {
+        return size;
     }
 }
 
